@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/ssm_db?useSSL=false
+    password: root
+    username: root
+  main:
+    banner-mode: off
+# mybatis-plus日志控制台输出
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: off # 关闭mybatisplus启动图标
+server:
+  port: 8081
+  address: 0.0.0.0   # 允许局域网访问
