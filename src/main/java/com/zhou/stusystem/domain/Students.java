@@ -1,11 +1,14 @@
 package com.zhou.stusystem.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Student {
+@TableName("students")
+
+public class Students {
     private String sid;
     private String sname;
     private String sgender;
