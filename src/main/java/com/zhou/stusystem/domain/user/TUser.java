@@ -1,4 +1,4 @@
-package com.zhou.stusystem.domain;
+package com.zhou.stusystem.domain.user;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -7,9 +7,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 
-@TableName("user")
-public class User {
-    private String sid;
+@TableName("t_user")
+public class TUser {
+    private String tid;
     private String username;
     private String password;
+
 }
