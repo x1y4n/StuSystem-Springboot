@@ -5,7 +5,6 @@ import com.zhou.stusystem.domain.Class;
 import com.zhou.stusystem.domain.Courses;
 import com.zhou.stusystem.domain.Scores;
 import com.zhou.stusystem.domain.Students;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 

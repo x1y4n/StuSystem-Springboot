@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 
-public class Courses {
+public class CoursesGrade {
     private String courseid;
-    private String tid;
     private String coursename;
-    private Integer credit;
-    private Integer xs;
+    private String sid;
+    private String sname;
+    private Integer grade;
 }
