@@ -3,7 +3,7 @@ package com.zhou.stusystem.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zhou.stusystem.domain.Class;
 import com.zhou.stusystem.domain.Courses;
-import com.zhou.stusystem.domain.Scores;
+import com.zhou.stusystem.domain.ScoresCourse;
 import com.zhou.stusystem.domain.Students;
 import com.zhou.stusystem.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,7 @@ public class StuController {
 
     @GetMapping("/score/{sid}")
     public Result getScore(@PathVariable String sid){
-        ArrayList<Scores> arrayList = new ArrayList<>();
+        ArrayList<ScoresCourse> arrayList = new ArrayList<>();
         arrayList = Stuservice.getScore(sid);
         return new Result(arrayList !=null?Code.LOGIN_OK:Code.LOGIN_ERR, arrayList !=null?"查询成功":"查询失败失败", arrayList);
     }
