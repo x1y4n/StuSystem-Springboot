@@ -3,10 +3,7 @@ package com.zhou.stusystem.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.zhou.stusystem.domain.Class;
 import com.zhou.stusystem.domain.*;
-import com.zhou.stusystem.service.ClassService;
-import com.zhou.stusystem.service.CourseService;
-import com.zhou.stusystem.service.ScoresService;
-import com.zhou.stusystem.service.StuService;
+import com.zhou.stusystem.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +19,8 @@ public class AdminController {
     StuService stuService;
     @Autowired
     ClassService classService;
+    @Autowired
+    TeacherService teacherService;
     @Autowired
     ScoresService scoresService;
     @Autowired
@@ -44,11 +43,11 @@ public class AdminController {
         if (!students.getSid().equals(""))
             lqw.eq(Students::getSid, students.getSid());
         if (!students.getSname().equals(""))
-            lqw.eq(Students::getSname, students.getSname());
+            lqw.like(Students::getSname, students.getSname());
         if (!students.getClassid().equals(""))
             lqw.eq(Students::getClassid, students.getClassid());
         if (!students.getMajor().equals(""))
-            lqw.eq(Students::getMajor, students.getMajor());
+            lqw.like(Students::getMajor, students.getMajor());
         List<Students> list = new ArrayList<>();
         list = stuService.list(lqw);
         return new Result(list != null ? Code.LOGIN_OK : Code.LOGIN_ERR, list != null ? "查询成功" : "查询失败", list);
@@ -184,12 +183,66 @@ public class AdminController {
         if (!aclass.getClassid().equals(""))
             lqw.eq(Class::getClassid, aclass.getClassid());
         if (!aclass.getMajor().equals(""))
-            lqw.eq(Class::getMajor, aclass.getMajor());
+            lqw.like(Class::getMajor, aclass.getMajor());
         if (!aclass.getClasstime().equals(""))
             lqw.eq(Class::getClasstime, aclass.getClasstime());
         List<Class> list = new ArrayList<>();
         list = classService.list(lqw);
         return new Result(list != null ? Code.LOGIN_OK : Code.LOGIN_ERR, list != null ? "查询成功" : "查询失败", list);
+    }
+
+    //查询所有教师id
+    @GetMapping("/teacherid")
+    public Result getTeacherId() {
+        LambdaQueryWrapper<Teachers> lqw = new LambdaQueryWrapper<>();
+        lqw.select(Teachers::getTid);
+        List<Map<String, Object>> maps;
+        maps = teacherService.listMaps(lqw);
+        return new Result(maps != null ? Code.LOGIN_OK : Code.LOGIN_ERR, maps != null ? "查询成功" : "查询失败", maps);
+    }
+
+    //查询所有课程信息
+    @GetMapping("/course")
+    public Result getAllCourse() {
+        List<Courses> list = new ArrayList<>();
+        list = courseService.list();
+        return new Result(list != null ? Code.LOGIN_OK : Code.LOGIN_ERR, list != null ? "查询成功" : "查询失败", list);
+    }
+
+    //根据条件查询课程信息
+    @PostMapping("/course/query")
+    public Result searchCourse(@RequestBody Courses courses) {
+        LambdaQueryWrapper<Courses> lqw = new LambdaQueryWrapper<>();
+        if (!courses.getCourseid().equals(""))
+            lqw.eq(Courses::getCourseid, courses.getCourseid());
+        if (!courses.getCoursename().equals(""))
+            lqw.like(Courses::getCoursename, courses.getCoursename());
+        List<Courses> list = new ArrayList<>();
+        list = courseService.list(lqw);
+        return new Result(list != null ? Code.LOGIN_OK : Code.LOGIN_ERR, list != null ? "查询成功" : "查询失败", list);
+    }
+
+    //添加课程信息
+    @PostMapping("/course")
+    public Result addCourse(@RequestBody Courses courses) {
+        Boolean n = courseService.save(courses);
+        return new Result(n ? Code.LOGIN_OK : Code.LOGIN_ERR, n ? "添加成功" : "添加失败", null);
+    }
+
+    //更新课程信息
+    @PutMapping("/course")
+    public Result updateCourse(@RequestBody Courses courses) {
+        LambdaQueryWrapper<Courses> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Courses::getCourseid, courses.getCourseid());
+        Boolean n = courseService.update(courses, lqw);
+        return new Result(n ? Code.LOGIN_OK : Code.LOGIN_ERR, n ? "更新成功" : "更新失败", null);
+    }
+
+    //删除班级
+    @DeleteMapping("/course")
+    public Result deleteCourse(@RequestBody Map<String, Object> map) {
+        Boolean n = courseService.removeByMap(map);
+        return new Result(n ? Code.LOGIN_OK : Code.LOGIN_ERR, n ? "删除成功" : "删除失败", null);
     }
 
 

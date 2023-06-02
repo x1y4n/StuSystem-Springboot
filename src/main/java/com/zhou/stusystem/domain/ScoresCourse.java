@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
+
 public class ScoresCourse {
     private String sid;
     private String courseid;

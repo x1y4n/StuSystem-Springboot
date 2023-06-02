@@ -62,7 +62,6 @@ public class UserController {
         return new Result(tUser != null ? Code.LOGIN_OK : Code.LOGIN_ERR, tUser != null ? "查询成功" : "查询失败失败", tUser);
     }
 
-
     //管理员用户
     @GetMapping("/auser")
     public Result getAUser() {
