@@ -1,5 +1,7 @@
-package com.zhou.stusystem.domain;
+package com.zhou.stusystem.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName("courses")
 public class Courses {
+    @TableId
     private String courseid;
     private String tid;
     private String coursename;

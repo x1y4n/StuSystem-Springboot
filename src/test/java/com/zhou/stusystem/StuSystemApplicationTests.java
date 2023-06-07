@@ -1,13 +1,10 @@
 package com.zhou.stusystem;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zhou.stusystem.dao.ClassDao;
+import com.zhou.stusystem.dao.ClassTableDao;
 import com.zhou.stusystem.dao.ScoresDao;
-import com.zhou.stusystem.domain.Scores;
-import com.zhou.stusystem.domain.ScoresCourse;
 import com.zhou.stusystem.service.ClassService;
-import com.zhou.stusystem.service.ScoresService;
+import com.zhou.stusystem.service.ClassTableService;
 import com.zhou.stusystem.service.StuService;
 import com.zhou.stusystem.service.user.TUserService;
 import org.junit.jupiter.api.Test;
@@ -31,10 +28,14 @@ class StuSystemApplicationTests {
     @Autowired
     ScoresDao scoresDao;
 
+    @Autowired
+    ClassTableService classTableService;
+    @Autowired
+    ClassTableDao classTableDao;
+
     @Test
     void contextLoads() {
-        IPage<Scores> page = new Page<>(1,5);
-        scoresDao.selectPage(page,null);
+        System.out.println(classTableDao.searchClassTable("and courses.courseid = '001'"));
     }
 
 }

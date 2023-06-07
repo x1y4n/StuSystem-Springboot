@@ -2,9 +2,9 @@ package com.zhou.stusystem.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zhou.stusystem.dao.TeacherDao;
-import com.zhou.stusystem.domain.Courses;
+import com.zhou.stusystem.domain.entity.Courses;
 import com.zhou.stusystem.domain.CoursesGrade;
-import com.zhou.stusystem.domain.Teachers;
+import com.zhou.stusystem.domain.entity.Teachers;
 import com.zhou.stusystem.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

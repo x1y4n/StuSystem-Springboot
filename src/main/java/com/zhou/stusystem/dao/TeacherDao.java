@@ -1,9 +1,9 @@
 package com.zhou.stusystem.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zhou.stusystem.domain.Courses;
+import com.zhou.stusystem.domain.entity.Courses;
 import com.zhou.stusystem.domain.CoursesGrade;
-import com.zhou.stusystem.domain.Teachers;
+import com.zhou.stusystem.domain.entity.Teachers;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

@@ -1,4 +1,4 @@
-package com.zhou.stusystem.domain;
+package com.zhou.stusystem.domain.entity;
 
 
 import com.baomidou.mybatisplus.annotation.TableName;

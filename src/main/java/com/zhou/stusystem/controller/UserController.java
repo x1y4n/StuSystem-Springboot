@@ -1,9 +1,9 @@
 package com.zhou.stusystem.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.zhou.stusystem.domain.user.AUser;
-import com.zhou.stusystem.domain.user.SUser;
-import com.zhou.stusystem.domain.user.TUser;
+import com.zhou.stusystem.domain.entity.user.AUser;
+import com.zhou.stusystem.domain.entity.user.SUser;
+import com.zhou.stusystem.domain.entity.user.TUser;
 import com.zhou.stusystem.service.user.AUserService;
 import com.zhou.stusystem.service.user.SUserService;
 import com.zhou.stusystem.service.user.TUserService;
@@ -107,10 +107,18 @@ public class UserController {
         return new Result(n != null ? Code.LOGIN_OK : Code.LOGIN_ERR, n != null ? "更新成功" : "更新失败", null);
     }
 
+    @GetMapping("/suser/{sid}")
+    public Result searchSUser(@PathVariable String sid) {
+        LambdaQueryWrapper<SUser> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(SUser::getSid,sid);
+        SUser sUser = sUserService.getOne(lqw);
+        return new Result(sUser != null ? Code.LOGIN_OK : Code.LOGIN_ERR, sUser != null ? "查询成功" : "查询失败", sUser);
+    }
+
     @PostMapping("/suser")
     public Result inserSUser(@RequestBody SUser sUser) {
         Boolean n = sUserService.save(sUser);
-        return new Result(n != null ? Code.LOGIN_OK : Code.LOGIN_ERR, n != null ? "添加成功" : "添加失败", null);
+        return new Result(n != null ? Code.LOGIN_OK : Code.LOGIN_ERR, n != null ? "注册成功" : "注册失败", null);
     }
 
     @DeleteMapping("/suser/")
@@ -127,6 +135,14 @@ public class UserController {
         return new Result(list != null ? Code.LOGIN_OK : Code.LOGIN_ERR, list != null ? "查询成功" : "查询失败", list);
     }
 
+    @GetMapping("/tuser/{tid}")
+    public Result searchTUser(@PathVariable String tid) {
+        LambdaQueryWrapper<TUser> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(TUser::getTid,tid);
+        TUser tUser = tUserService.getOne(lqw);
+        return new Result(tUser != null ? Code.LOGIN_OK : Code.LOGIN_ERR, tUser != null ? "查询成功" : "查询失败", tUser);
+    }
+
     @PutMapping("/tuser")
     public Result updateSUser(@RequestBody TUser tUser) {
         LambdaQueryWrapper<TUser> lqw = new LambdaQueryWrapper<>();
@@ -138,7 +154,7 @@ public class UserController {
     @PostMapping("/tuser")
     public Result inserTUser(@RequestBody TUser tUser) {
         Boolean n = tUserService.save(tUser);
-        return new Result(n != null ? Code.LOGIN_OK : Code.LOGIN_ERR, n != null ? "添加成功" : "添加失败", null);
+        return new Result(n != null ? Code.LOGIN_OK : Code.LOGIN_ERR, n != null ? "注册成功" : "注册失败", null);
     }
 
     @DeleteMapping("/tuser/")

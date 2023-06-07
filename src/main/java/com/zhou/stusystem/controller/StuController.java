@@ -1,10 +1,10 @@
 package com.zhou.stusystem.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.zhou.stusystem.domain.Class;
-import com.zhou.stusystem.domain.Courses;
+import com.zhou.stusystem.domain.entity.Class;
+import com.zhou.stusystem.domain.entity.Courses;
 import com.zhou.stusystem.domain.ScoresCourse;
-import com.zhou.stusystem.domain.Students;
+import com.zhou.stusystem.domain.entity.Students;
 import com.zhou.stusystem.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
