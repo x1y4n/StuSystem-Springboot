@@ -5,6 +5,7 @@
 ![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/713bedaf-3603-4827-b9f7-e9d51e2648dd)
 用户登录功能
 (1)	登陆功能：可以选择学生、老师或管理员进行登陆
+
  ![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/9da6b2ac-b6f3-4405-9b4a-38d337dd6b13)
 
 
@@ -13,108 +14,24 @@
 ![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/1e724a0f-3f23-4ad2-b2da-2c80eef7fb24)
 
 
+学生功能页面
 
-学生功能
-（1）	个人信息查询
- 
-（2）	班级信息查询
- 
-
-（3）	已选课程信息查询
-可以根据课程号进行查询，根据课程名进行模糊查询
- 
-
-（4）	查看课程表信息
- 
-
-（5）	查询个人成绩
- 
-
-（6）	修改密码：通过输入自己的原密码来修改密码
- 
-
-
-教师功能
-（1）	查询教师个人信息
- 
-
-
-（2）	查询所教课程信息
- 
+![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/f7427799-4514-4c74-8274-c2e91f8a298b)
 
 
 
-（3）	查看学生成绩：通过点击相应课程的查看按钮，可以进入学生成绩页面
- 
-（4）	编辑学生课程成绩：通过点击编辑按钮实现，学号和课程号自动获取且无法编辑
- 
+教师功能页面
 
-（5）	添加学生成绩：课程号和课程名自动获取
- 
+![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/531213cd-c10a-4e7c-a0bc-99ddf3262e0c)
 
 
 
 
+管理员功能页面
 
+![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/cfbc3825-5c48-45ca-a22f-ee9e7b758f9b)
 
-
-管理员功能
-
-(1)	班级信息管理页面
- 
-
-(2)	班级信息编辑、删除、添加、查询
- 
-  
- 
-
-
-(3)	学生信息查询
-主页面
- 
-	编辑学生信息
- 
-
-
-
-
-
-
-查询学生信息：可以通过学号、姓名、班级、专业进行查询，姓名可以模糊查询
- 
-
-添加学生信息
- 
-
-(4)	学生信息查询：表格颜色红色代表挂科，绿色代表优秀
-
- 
-	可以按成绩区间进行、学号或课程号进行查询
-编辑学生成绩
- 
-	添加学生成绩
- 
-
-
-
-(5)	课程信息管理
- 
-	编辑课程信息
- 
-	添加课程信息
- 
-	查询课程信息
- 
-(6)	课表信息管理
- 
-	编辑课程表
- 
-	查询课程表
- 
-（7）	排课操作
- 
-
-（8）	用户管理
+用户管理
  ![image](https://github.com/x1y4n/StuSystem-Springboot/assets/108856935/2cc8692e-4309-4b50-a7f3-fe59d599f76d)
 
 编辑用户
